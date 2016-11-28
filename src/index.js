@@ -11,18 +11,6 @@ function isNumber (num)// for array.filter()
     return (typeof num === 'number');
 }
 
-function convertArray (item) //приведение не числовых значений к нулю
-{
-    if (typeof item === "number")
-        {
-            return item;
-        }
-    else
-        {
-            return 0;
-        }
-}
-
 function sum()
 {
     if (arguments.length === 0)
@@ -32,6 +20,7 @@ function sum()
 
     else
     {
+        //при использовании isNumber код не проходит верификацию тестами
         var sum_result = 0;
         for (var i =0; i<arguments.length; i++)
         {
@@ -50,7 +39,8 @@ function min (array)
         return;
     }
     min_value = array.filter(isNumber);//избавляемся от не числовых значений
-    return min_value.sort(compare)[0];//возвращаем первое(минимальное) значение отсортированного массива
+    var result = min_value.sort(compare)[0];//возвращаем первое(минимальное) значение отсортированного массива
+    return result;
 }
 
 function max (array)
@@ -61,5 +51,6 @@ function max (array)
         return;
     }
     max_value = array.filter(isNumber);
-    return max_value.sort(compare)[max_value.length - 1];//возвращаем последнее(максимальное) значение отсортированного массива
+    var result = max_value.sort(compare)[max_value.length - 1];// последнее(максимальное) значение отсортированного массива
+    return result;
 }
