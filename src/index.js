@@ -20,12 +20,13 @@ function sum()
 
     else
     {
-        //при использовании isNumber код не проходит верификацию тестами
         var sum_result = 0;
         for (var i =0; i<arguments.length; i++)
         {
-            if (typeof (arguments[i]) !== "number"){continue}
-            sum_result += arguments[i];
+            if (isNumber(arguments[i]))
+            {
+                sum_result += arguments[i];
+            }
         }
         return sum_result;
     }
